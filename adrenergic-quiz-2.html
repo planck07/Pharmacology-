@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Adrenergic pharmacology quiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f8f9;--card:#fff;--ink:#10343d;--mute:#56747b;--line:#cfe0e3;--teal:#1b7f8c;--tealbg:#d9eef0;--bad:#a8402f;--good:#2b7a4b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f2429;--card:#16333a;--ink:#e4f1f3;--mute:#9bb8be;--line:#2a4a52;--teal:#5cc3cf;--tealbg:#1f4a52;--bad:#f0a090;--good:#8bd3a6}}
+:root[data-theme="dark"]{--bg:#0f2429;--card:#16333a;--ink:#e4f1f3;--mute:#9bb8be;--line:#2a4a52;--teal:#5cc3cf;--tealbg:#1f4a52;--bad:#f0a090;--good:#8bd3a6}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 "Source Sans 3",system-ui,sans-serif}
+main{max-width:560px;margin:0 auto;padding:28px 18px 48px}
+h1{font:500 30px/1.15 Fraunces,Georgia,serif;margin:0 0 10px}
+p{margin:0 0 14px}
+.mute{color:var(--mute);font-size:15px}
+button{font:600 17px "Source Sans 3",system-ui,sans-serif;min-height:48px;padding:0 20px;border-radius:8px;border:1.5px solid var(--teal);background:var(--teal);color:#fff;cursor:pointer;width:100%}
+button.opt{background:var(--card);color:var(--ink);border:1.5px solid var(--line);text-align:left;margin:0 0 10px;padding:12px 16px;font-weight:400;height:auto;user-select:none}
+button.opt.sel{border-color:var(--teal);background:var(--tealbg)}
+button.alt{background:var(--card);color:var(--teal)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+input{width:100%;min-height:48px;padding:0 14px;font:400 17px "Source Sans 3",system-ui,sans-serif;border:1.5px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);margin:0 0 14px}
+.err{color:var(--bad);font-size:15px;min-height:22px;margin:4px 0 10px}
+.top{display:flex;justify-content:space-between;font-size:15px;color:var(--mute)}
+.bar{height:5px;background:var(--line);border-radius:3px;margin:8px 0 22px}
+.bar i{display:block;height:5px;background:var(--teal);border-radius:3px}
+.q{font:500 22px/1.3 Fraunces,Georgia,serif;margin:0 0 18px;user-select:none}
+.row{display:flex;gap:10px;margin:0 0 12px}.row button{flex:1}
+.grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:0 0 16px}
+button.qn{padding:0;min-height:46px;background:var(--card);color:var(--ink);border:1.5px solid var(--line)}
+button.qn.done{background:var(--teal);color:#fff;border-color:var(--teal)}
+button.qn.cur{box-shadow:0 0 0 3px var(--ink)}
+.rv{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 12px}
+.rv .rq{font-weight:600;margin:0 0 8px}
+.rv p{margin:0 0 6px;font-size:16px}
+.no{color:var(--bad)}.yes{color:var(--good)}
+.code{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:16px;word-break:break-word;margin:0 0 14px}
+a.btn{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:8px;background:var(--teal);color:#fff;text-decoration:none;font-weight:600;margin-top:4px}
+@media (prefers-reduced-motion:no-preference){.bar i{transition:width .25s}}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+var WKEY="f9393b69-9fd1-45c3-bbf0-1e9ffa293d7b",CH=260620620,LIMIT=3600,SK="adrenergic50";
+var Q=[["The adrenal medulla secretes epinephrine and norepinephrine in an approximate ratio of:", ["1 part epinephrine to 4 parts norepinephrine", "50:1", "4 parts epinephrine to 1 part norepinephrine", "1:1"], 2, "The adrenal medulla secretes roughly 4 parts epinephrine to 1 part norepinephrine."], ["A patient's fight-or-flight response lasts for hours rather than seconds. The best explanation is:", ["Immediate enzymatic breakdown of norepinephrine at the junction", "Strong parasympathetic outflow to the heart", "Circulating epinephrine and norepinephrine from the adrenal medulla sustain sympathoadrenal activity", "Rapid acetylcholinesterase hydrolysis of norepinephrine"], 2, "Hormones released from the adrenal medulla circulate in the blood and clear slowly, so sympathoadrenal effects last far longer than a single neurotransmitter pulse."], ["Sympathetic responses last longer than parasympathetic responses mainly because norepinephrine is cleared chiefly by:", ["Immediate binding to cholinergic receptors", "Reuptake through the Na+-dependent norepinephrine transporter (NET)", "Rapid hydrolysis by acetylcholinesterase", "Diffusion into the bloodstream only"], 1, "Norepinephrine is cleared mainly by reuptake through NET into the nerve terminal, which is slower than acetylcholine's rapid breakdown by acetylcholinesterase."], ["The rate-limiting enzyme in catecholamine synthesis is:", ["Monoamine oxidase (MAO)", "Tyrosine hydroxylase", "Dopamine β-hydroxylase", "Catechol-O-methyltransferase (COMT)"], 1, "Tyrosine hydroxylase converts tyrosine to DOPA, the slowest and controlling step of catecholamine synthesis."], ["A researcher uses α-CH3-tyrosine to block the rate-limiting step of catecholamine synthesis. Which step is inhibited?", ["Conversion of norepinephrine to epinephrine", "Exocytotic release of norepinephrine", "Reuptake of norepinephrine into neurons", "Conversion of tyrosine to DOPA"], 3, "α-methyl-tyrosine inhibits tyrosine hydroxylase, so tyrosine can't be converted to DOPA."], ["Methyldopa lowers blood pressure mainly because its metabolite, α-methylnorepinephrine, acts as:", ["A central α2 agonist that reduces sympathetic outflow", "A peripheral β1 antagonist", "A COMT inhibitor", "A direct α1 vasoconstrictor"], 0, "Methyldopa is converted to α-methylnorepinephrine, which acts as a central α2 agonist and lowers sympathetic outflow."], ["Reserpine depletes vesicular norepinephrine stores. An indirect-acting drug such as amphetamine would then produce:", ["A larger release, because reserpine blocks reuptake", "No change, because amphetamine acts directly on receptors", "Increased vesicular storage", "A much weaker norepinephrine release, because little is stored"], 3, "Reserpine empties the vesicles. Amphetamine works by releasing stored norepinephrine, so with little stored, its effect is much weaker."], ["6-hydroxydopamine causes chemical sympathectomy by:", ["Stimulating β2 receptors on bronchioles", "Blocking α1 receptors on vascular smooth muscle", "Inhibiting acetylcholinesterase", "Being taken up by and killing adrenergic neurons"], 3, "6-hydroxydopamine is taken up into adrenergic neurons and destroys them, causing chemical sympathectomy."], ["A patient using cocaine develops severe hypertension and tachycardia. The most likely mechanism is:", ["Inhibition of MAO-A, raising tyramine", "Blockade of NET, raising synaptic norepinephrine", "Activation of presynaptic α2 autoreceptors", "Blockade of β1 receptors"], 1, "Cocaine blocks NET, so norepinephrine stays longer in the synapse, causing hypertension and tachycardia."], ["Tricyclic antidepressants raise extraneuronal norepinephrine and dopamine mainly by:", ["Stimulating vesicular release directly", "Activating β3 receptors", "Blocking neuronal reuptake", "Inhibiting COMT"], 2, "Tricyclic antidepressants block neuronal reuptake of norepinephrine (and serotonin), raising their levels outside the neuron."], ["A patient on an MAO inhibitor eats aged cheese and develops a hypertensive crisis. The best explanation is:", ["Tyramine is converted by COMT into epinephrine", "Tyramine blocks α1 receptors", "Tyramine enters nerve terminals and displaces stored norepinephrine, which is not broken down efficiently when MAO is inhibited", "Tyramine inhibits NET and stops norepinephrine reuptake"], 2, "With MAO inhibited, tyramine from food displaces stored norepinephrine, which isn't broken down efficiently, causing a hypertensive crisis."], ["COMT inhibitors are used in Parkinson's disease because they:", ["Block dopamine D2 receptors", "Increase acetylcholine release", "Prolong the lifetime of catecholamines such as dopamine by slowing their methylation", "Replace lost dopaminergic neurons"], 2, "COMT inhibitors slow methylation, prolonging the lifetime of dopamine (and levodopa) in Parkinson's disease."], ["MAO-B inhibitors are used in Parkinson's disease because MAO-B preferentially metabolizes:", ["Dopamine", "Acetylcholine", "Norepinephrine", "Epinephrine only"], 0, "MAO-B mainly metabolises dopamine, so inhibiting it helps preserve dopamine."], ["Amphetamine is classified as an indirect-acting sympathomimetic because it:", ["Blocks all β receptors", "Displaces norepinephrine from vesicles and inhibits its reuptake", "Directly binds and activates α1 receptors", "Inhibits adenylate cyclase"], 1, "Amphetamine acts indirectly: it displaces norepinephrine from vesicles and inhibits its reuptake."], ["Ephedrine is classified as a mixed-acting agonist because it:", ["Acts only through α1 receptors", "Acts only by blocking reuptake", "Both activates receptors directly and releases norepinephrine indirectly", "Acts only by inhibiting MAO"], 2, "Ephedrine has both direct receptor activation and indirect release of norepinephrine, so it is mixed-acting."], ["Presynaptic α2 autoreceptors on sympathetic terminals normally:", ["Degrade norepinephrine enzymatically", "Decrease further norepinephrine release (negative feedback)", "Increase norepinephrine release", "Stimulate NET reuptake"], 1, "Presynaptic α2 autoreceptors give negative feedback, decreasing further norepinephrine release."], ["A drug that blocks presynaptic α2 receptors would be expected to:", ["Block NET reuptake", "Decrease norepinephrine release", "Increase norepinephrine release from sympathetic terminals", "Lower norepinephrine synthesis"], 2, "Blocking the α2 brake removes the negative feedback, so more norepinephrine is released."], ["Stimulation of presynaptic β2 receptors on sympathetic terminals leads to:", ["Increased NET reuptake only", "Inhibition of tyrosine hydroxylase", "Increased norepinephrine release", "Decreased norepinephrine release"], 2, "Presynaptic β2 receptors are facilitatory, so stimulating them increases norepinephrine release."], ["Norepinephrine is cleared mainly by reuptake, whereas dopamine has a greater role in clearance by:", ["Uptake II (OCT3/PMAT) on non-neural cells", "Carbonic anhydrase", "Acetylcholinesterase", "Lipoprotein lipase"], 0, "Dopamine is cleared more by uptake II (OCT3/PMAT) on non-neural cells than norepinephrine is."], ["During stress, circulating epinephrine mainly activates which receptor to relax bronchial smooth muscle?", ["α2", "β2", "β1", "α1"], 1, "Circulating epinephrine activates β2 receptors in the bronchi, relaxing bronchial smooth muscle."], ["Epinephrine is approximately how much more potent than norepinephrine?", ["About 50 times", "About 2 times", "About equal", "About 4 times"], 0, "Epinephrine is about 50 times more potent than norepinephrine."], ["Epinephrine is given in anaphylaxis because it simultaneously:", ["Constricts vessels via α1, increases contractility via β1, and dilates bronchi via β2", "Blocks β2 and constricts bronchi", "Dilates vessels via α1 and slows the heart via β1", "Acts only on α2 to reduce sympathetic outflow"], 0, "Epinephrine constricts vessels (α1), raises contractility (β1) and dilates bronchi (β2). All three effects counter anaphylaxis."], ["A patient with vasodilatory hypotension receives phenylephrine. The desired effect is mediated by:", ["α2 receptors in the CNS", "β2 receptors causing vasodilation", "β1 receptors increasing heart rate", "α1 receptors on vascular smooth muscle causing vasoconstriction"], 3, "Phenylephrine is an α1 agonist, so it constricts vascular smooth muscle and raises blood pressure."], ["Phenylephrine 2.5% eye drops are used to dilate the pupil for a fundus exam. Pupillary dilation is produced by:", ["β2 stimulation of the ciliary muscle", "α2 stimulation of the iris sphincter", "α1 stimulation of the iris dilator muscle", "Parasympathetic stimulation of the sphincter pupillae"], 2, "α1 stimulation of the iris dilator muscle produces pupil dilation (mydriasis)."], ["In glaucoma, brimonidine (an α2 agonist) lowers intraocular pressure mainly by:", ["Reducing aqueous humor production at the ciliary body", "Stimulating β2 receptors in the trabecular meshwork", "Constricting the pupil to open the drainage angle", "Increasing vitreous volume"], 0, "Brimonidine, an α2 agonist, lowers intraocular pressure mainly by reducing aqueous humor production at the ciliary body."], ["Timolol, a nonselective β-blocker, lowers intraocular pressure mainly by:", ["Dilating the trabecular meshwork", "Constricting the iris sphincter", "Reducing aqueous humor secretion through blockade of β receptors on the ciliary epithelium", "Increasing uveoscleral outflow through α2 activation"], 2, "Timolol blocks β receptors on the ciliary epithelium, reducing aqueous secretion."], ["A glaucoma patient on timolol develops wheezing. The most likely reason is:", ["Excess α2-mediated secretion", "Blockade of β1 receptors in the lungs", "Stimulation of α1 receptors in the bronchioles", "Blockade of β2 receptors in the airways, allowing unopposed bronchoconstriction"], 3, "A nonselective β-blocker also blocks β2 receptors in the airways, leaving bronchoconstriction unopposed."], ["Dobutamine, a β1-selective agonist, is used in cardiogenic shock because it:", ["Reduces sympathetic outflow via α2", "Increases cardiac contractility by activating β1 receptors", "Dilates bronchioles via β2", "Constricts peripheral arterioles via α1"], 1, "Dobutamine activates β1 receptors, increasing cardiac contractility."], ["Albuterol, a short-acting β2 agonist, works in asthma by:", ["Constricting bronchioles through α1 receptors", "Raising heart rate through β1 receptors only", "Reducing airway smooth muscle tone through α2 stimulation", "Relaxing airway smooth muscle through β2 receptors"], 3, "Albuterol activates β2 receptors, relaxing airway smooth muscle."], ["Mirabegron, a β3 agonist, is used for overactive bladder because β3 receptors on the detrusor muscle cause:", ["Contraction, increasing urinary urgency", "Relaxation, increasing bladder storage capacity", "Increased urinary retention", "Constriction of the urethra"], 1, "β3 receptors on the detrusor cause relaxation, increasing bladder storage capacity."], ["Activation of β3 receptors on adipocytes would most directly:", ["Increase glycogen synthesis", "Decrease lipolysis", "Increase lipolysis", "Constrict local vessels"], 2, "β3 receptors on adipocytes stimulate lipolysis."], ["Tamsulosin is used for benign prostatic hyperplasia because it selectively blocks:", ["β1 receptors in the heart", "α2 receptors in the CNS", "α1A receptors on prostatic smooth muscle", "β2 receptors on bladder smooth muscle"], 2, "Tamsulosin selectively blocks α1A receptors on prostatic smooth muscle, relaxing it and easing urine flow."], ["Clonidine lowers blood pressure mainly by:", ["Direct β1 blockade in the heart", "Central α2 activation that reduces sympathetic outflow", "Stimulating nitric oxide release from endothelium", "Peripheral α1 blockade causing vasodilation"], 1, "Clonidine is a central α2 agonist and reduces sympathetic outflow, lowering blood pressure."], ["A hypertensive patient with asthma needs a β-blocker. The most appropriate choice is:", ["A β1-selective antagonist", "An α2 agonist", "A β2 agonist", "A nonselective β-blocker such as propranolol"], 0, "A β1-selective antagonist spares β2 receptors in the airways, so it is safer in asthma."], ["A β-blocker with intrinsic sympathomimetic activity (partial agonism) is expected to:", ["Cause less resting bradycardia than a pure antagonist", "Block all adrenergic receptors completely", "Raise blood glucose through glycogenolysis", "Increase α1 vasoconstriction"], 0, "Partial agonism gives some baseline β stimulation, so there is less resting bradycardia than with a pure antagonist."], ["A patient with a pheochromocytoma is given a β-blocker alone and becomes severely hypertensive. The best explanation is:", ["Unopposed α1 stimulation by excess circulating catecholamines causes vasoconstriction", "β2 blockade triggers bronchoconstriction", "β-blockers increase norepinephrine release from the tumor", "β-blockers inhibit COMT and raise catecholamines"], 0, "Blocking β2 vasodilation leaves excess catecholamines acting on α1 receptors unopposed, causing severe vasoconstriction."], ["In pheochromocytoma management, which agent should be started first?", ["A β3 agonist", "An α1-antagonist, before any β-blocker", "A β1-selective antagonist", "A NET blocker"], 1, "The α1-antagonist is started first to control vasoconstriction, and a β-blocker is added only afterwards."], ["Isoproterenol, a synthetic β1/β2 agonist, is used in heart block because it:", ["Constricts coronary arteries via α1", "Increases heart rate and AV conduction via β1 receptors", "Blocks presynaptic α2 receptors", "Increases bladder storage via β3"], 1, "Isoproterenol stimulates β1 receptors, increasing heart rate and AV conduction, which helps in heart block."], ["Lengthening the amine side chain of norepinephrine in a synthetic derivative is done to:", ["Make the drug a MAO inhibitor", "Convert it into dopamine", "Increase α1 potency", "Increase β2 selectivity and reduce metabolism, prolonging the effect"], 3, "Lengthening the amine side chain increases β2 selectivity and reduces metabolism, prolonging the effect."], ["Tyramine-rich foods are dangerous mainly in patients taking:", ["COMT inhibitors", "MAO inhibitors", "NET inhibitors", "β-blockers"], 1, "Tyramine-rich foods are dangerous mainly with MAO inhibitors, since tyramine isn't broken down and displaces norepinephrine."], ["Which target organs are controlled ONLY by the sympathetic division?", ["Most blood vessels, pilomotor muscles and the adrenal medulla", "Pupillary sphincter and ciliary muscle", "Gastrointestinal tract and bladder", "Heart and bronchioles"], 0, "Most blood vessels, pilomotor muscles and the adrenal medulla are controlled only by the sympathetic division."], ["A patient with a chromaffin cell tumor has episodic hypertension, tachycardia, sweating and headache. The most likely cause is:", ["Excess ADH from the posterior pituitary", "Excess catecholamine secretion from the tumor", "Excess cortisol from the adrenal cortex", "Excess insulin from the pancreatic islets"], 1, "A chromaffin cell tumour (pheochromocytoma) secretes excess catecholamines, causing the episodes of hypertension, tachycardia, sweating and headache."], ["A drug that blocks α1 receptors would most likely change the pupil by:", ["Increasing mydriasis", "Causing dilation via β1 receptors", "Increasing accommodation for far vision", "Reducing pupillary dilation (less mydriasis)"], 3, "Blocking α1 receptors weakens the iris dilator, so the pupil dilates less."], ["Sympathetic activation of the eye normally produces:", ["Bronchoconstriction", "Miosis and accommodation for near vision", "Increased tear production only", "Pupillary dilation and accommodation for far vision"], 3, "Sympathetic activation of the eye dilates the pupil and sets the eye for far vision."], ["Dopamine released from some sympathetic postganglionic fibers in place of norepinephrine is best described as:", ["A co-transmitter that cannot act on receptors", "An enzyme inhibitor", "A neuromodulator with no receptor action", "An alternative transmitter released from some sympathetic fibers"], 3, "Some sympathetic postganglionic fibres release dopamine as an alternative transmitter in place of norepinephrine."], ["ATP released from sympathetic nerves is best described as:", ["A co-transmitter released with norepinephrine that acts on its own receptors", "An inhibitor of α2 receptors", "A synthetic β3 agonist", "The primary adrenergic transmitter"], 0, "ATP is a co-transmitter released with norepinephrine, and it acts on its own receptors."], ["Dopamine β-hydroxylase deficiency would most directly prevent conversion of:", ["Norepinephrine to epinephrine", "Norepinephrine to normetanephrine", "Tyrosine to DOPA", "Dopamine to norepinephrine"], 3, "Dopamine β-hydroxylase converts dopamine to norepinephrine, so a deficiency blocks that step."], ["Phenylethanolamine N-methyltransferase (PNMT) is needed for:", ["Converting norepinephrine to epinephrine in the adrenal medulla", "Converting tyrosine to DOPA", "Reuptake of norepinephrine into neurons", "Breaking down catecholamines in the liver"], 0, "PNMT converts norepinephrine to epinephrine in the adrenal medulla."], ["Which of the following is NOT a recognised adrenergic receptor subtype?", ["α3", "β1", "α2", "β3"], 0, "The recognised adrenergic receptors are α1, α2, β1, β2 and β3. There is no α3."], ["Which receptor–effect pairing is correct?", ["α2 — bronchodilation", "β1 — relaxation of prostatic smooth muscle", "α1 — increased lipolysis in adipose tissue", "β3 — relaxation of the bladder detrusor"], 3, "β3 receptors relax the bladder detrusor. α2 doesn't cause bronchodilation (β2 does), β1 doesn't relax prostate muscle, and lipolysis is β3."]];
+var app=document.getElementById("app"),order,i,end,tmr,active=false,t0,picks=[],sw=0,nm="";
+function hs(t){var x=5381;for(var k=0;k<t.length;k++){x=((x<<5)+x+t.charCodeAt(k))>>>0;}return x;}
+function shuffle(a){for(var x=a.length-1;x>0;x--){var j=Math.floor(Math.random()*(x+1)),t=a[x];a[x]=a[j];a[j]=t;}return a;}
+function sget(){try{return JSON.parse(localStorage.getItem(SK));}catch(e){return null;}}
+function sset(v){try{localStorage.setItem(SK,JSON.stringify(v));}catch(e){}}
+function p2(n){return String(n).padStart(2,"0");}
+function mmss(ms){var s=Math.max(0,Math.floor(ms/1000));return p2(Math.floor(s/60))+":"+p2(s%60);}
+function gate(){
+ var s=sget();
+ if(s&&s.done){showResult(s,false);return;}
+ if(s&&s.started){app.innerHTML='<h1>Quiz already started</h1><p>This quiz was started on this device and can\'t be restarted. Contact your instructor.</p><p class="mute">Started by '+s.name+'.</p>';return;}
+ app.innerHTML='<h1>Adrenergic pharmacology quiz</h1><p class="mute">OPT-427 Ocular Pharmacology: autonomic and adrenergic pharmacology</p><p>'+Q.length+' multiple-choice questions, '+(LIMIT/60)+' minutes. One attempt. You can go back and change answers before you submit, and afterwards you will see all your answers, right and wrong, with explanations for the ones you missed.</p><label for="nm" class="mute">Your full name</label><input id="nm" autocomplete="name" placeholder="Ama Mensah"><label for="pw" class="mute">Access code from your instructor</label><input id="pw" type="password" autocomplete="off"><div class="err" id="err" role="alert"></div><button id="go">Start quiz</button>';
+ var err=document.getElementById("err");
+ document.getElementById("go").onclick=function(){
+  var name=document.getElementById("nm").value.trim();
+  if(!name){err.textContent="Enter your name first.";return;}
+  if(hs(document.getElementById("pw").value.trim().toLowerCase())!==CH){err.textContent="That access code isn't right. Check it and try again.";return;}
+  begin(name);
+ };
+}
+function begin(name){
+ var idx=[];for(var k=0;k<Q.length;k++){idx.push(k);}
+ order=shuffle(idx).map(function(n){var o=Q[n][1].map(function(t,j){return {t:t,o:j};});return {n:n,q:Q[n][0],opts:shuffle(o)};});
+ picks=[];for(var z=0;z<Q.length;z++){picks.push(-1);}
+ i=0;sw=0;active=true;nm=name;t0=Date.now();end=t0+LIMIT*1000;
+ sset({started:t0,name:name});
+ tmr=setInterval(function(){var el=document.getElementById("tm"),l=end-Date.now();if(el){el.textContent=mmss(l);}if(l<=0){finish();}},1000);
+ ask();
+}
+function head(){
+ var d=0;for(var k=0;k<picks.length;k++){if(picks[k]>=0){d++;}}
+ return {done:d,html:'<div class="top"><span>'+d+' of '+Q.length+' answered</span><span>Time left <b id="tm">'+mmss(end-Date.now())+'</b></span></div><div class="bar"><i style="width:'+Math.round(d/Q.length*100)+'%"></i></div>'};
+}
+function ask(){
+ var d=order[i],h=head().html;
+ h+='<p class="mute">Question '+(i+1)+' of '+Q.length+'</p><p class="q">'+d.q+'</p>';
+ for(var k=0;k<d.opts.length;k++){h+='<button class="opt'+(picks[i]===k?' sel':'')+'" data-k="'+k+'">'+d.opts[k].t+'</button>';}
+ h+='<div class="row">'+(i>0?'<button id="bk" class="alt">Back</button>':'')+'<button id="nx">'+(i<Q.length-1?'Next':'Review')+'</button></div><button id="all" class="alt">All questions</button><p class="mute" style="margin-top:14px">Leaving this tab is recorded.</p>';
+ app.innerHTML=h;
+ var o=app.querySelectorAll(".opt");
+ for(var n=0;n<o.length;n++){o[n].onclick=function(){picks[i]=+this.getAttribute("data-k");ask();};}
+ var bk=document.getElementById("bk");if(bk){bk.onclick=function(){i--;ask();};}
+ document.getElementById("nx").onclick=function(){if(i<Q.length-1){i++;ask();}else{overview();}};
+ document.getElementById("all").onclick=overview;
+}
+function overview(){
+ var hd=head(),left=Q.length-hd.done,conf=false;
+ var h=hd.html+'<h1 style="font-size:24px">All questions</h1><p class="mute">Filled numbers are answered. Outlined numbers are not answered yet. Tap a number to open that question.</p><div class="grid">';
+ for(var k=0;k<Q.length;k++){h+='<button class="qn'+(picks[k]>=0?' done':'')+(k===i?' cur':'')+'" data-q="'+k+'" aria-label="Question '+(k+1)+(picks[k]>=0?', answered':', not answered')+'">'+(k+1)+'</button>';}
+ h+='</div><div class="err" id="err" role="alert"></div><div class="row"><button id="rt" class="alt">Back to question</button><button id="sub">Submit quiz</button></div>';
+ app.innerHTML=h;
+ var g=app.querySelectorAll(".qn");
+ for(var n=0;n<g.length;n++){g[n].onclick=function(){i=+this.getAttribute("data-q");ask();};}
+ document.getElementById("rt").onclick=ask;
+ document.getElementById("sub").onclick=function(){
+  if(left>0&&!conf){conf=true;document.getElementById("err").textContent=left+" question"+(left>1?"s are":" is")+" not answered. Tap Submit quiz again to submit anyway.";return;}
+  finish();
+ };
+}
+function finish(){
+ if(!active){return;}
+ active=false;clearInterval(tmr);
+ var score=0,rev=[],answered=0;
+ for(var k=0;k<order.length;k++){
+  var e=order[k],c=picks[k]>=0?e.opts[picks[k]]:null,d=Q[e.n],ok=!!c&&c.o===d[2];
+  if(c){answered++;}
+  if(ok){score++;}
+  rev.push([e.n+1,d[0],c?c.t:"Not answered",d[1][d[2]],ok?"":d[3],ok?1:0]);
+ }
+ rev.sort(function(a,b){return a[0]-b[0];});
+ var used=mmss(Math.min(Date.now(),end)-t0);
+ var code=nm+" | "+score+"/"+Q.length+" | tab leaves: "+sw+" | time used: "+used;
+ var s={started:t0,name:nm,done:1,score:score,total:Q.length,code:code,review:rev};
+ sset(s);
+ showResult(s,true);
+ var fail="Couldn't send automatically. Send the result code below to your instructor.";
+ if(WKEY.indexOf("PASTE")===0){setStatus(fail);return;}
+ setStatus("Sending your result…");
+ var missed=rev.filter(function(r){return !r[5];}).map(function(r){return r[0];}).join(", ");
+ try{fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({access_key:WKEY,subject:"Adrenergic pharmacology quiz result: "+nm,name:nm,score:score+" / "+Q.length,answered:answered,missed_question_numbers:missed||"none",tab_leaves:sw,time_used:used})}).then(function(r){return r.json();}).then(function(d){setStatus(d&&d.success?"Your result was sent to your instructor.":fail);}).catch(function(){setStatus(fail);});}catch(e){setStatus(fail);}
+}
+var statusMsg="";
+function setStatus(t){statusMsg=t;var el=document.getElementById("st");if(el){el.textContent=t;}}
+function showResult(s,fresh){
+ var r=s.review||[],wrong=0;
+ for(var k=0;k<r.length;k++){if(!r[k][5]){wrong++;}}
+ var only=false;
+ function draw(){
+  var h='<h1>You scored '+s.score+' / '+s.total+'</h1><p class="mute" id="st">'+(fresh?statusMsg:"Your result was already submitted on this device.")+'</p>';
+  h+='<h2 style="font:500 22px Fraunces,Georgia,serif;margin:18px 0 6px">Your answers</h2><p class="mute">'+s.score+' correct, '+wrong+' wrong or unanswered. Correct answers are marked. Each wrong one shows the right answer and why.</p><div class="row"><button id="fa" class="'+(only?'alt':'')+'">All questions</button><button id="fw" class="'+(only?'':'alt')+'">Wrong only</button></div>';
+  for(var k=0;k<r.length;k++){
+   if(only&&r[k][5]){continue;}
+   if(r[k][5]){h+='<div class="rv"><p class="rq">'+r[k][1]+'</p><p class="yes"><b>Correct:</b> '+r[k][3]+'</p></div>';}
+   else{h+='<div class="rv"><p class="rq">'+r[k][1]+'</p><p class="no">Your answer: '+r[k][2]+'</p><p class="yes">Correct answer: '+r[k][3]+'</p><p><b>Why:</b> '+r[k][4]+'</p></div>';}
+  }
+  h+='<p>Your result code:</p><div class="code">'+s.code+'</div><button id="cp" class="alt">Copy result code</button><div class="err" id="cerr"></div><a class="btn" href="quit.html">Exit exam</a>';
+  app.innerHTML=h;
+  document.getElementById("fa").onclick=function(){only=false;draw();};
+  document.getElementById("fw").onclick=function(){only=true;draw();};
+  document.getElementById("cp").onclick=function(){var m=document.getElementById("cerr");try{navigator.clipboard.writeText(s.code).then(function(){m.textContent="Copied.";},function(){m.textContent="Select the code above and copy it.";});}catch(e){m.textContent="Select the code above and copy it.";}};
+ }
+ draw();window.scrollTo(0,0);
+}
+document.addEventListener("visibilitychange",function(){if(active&&document.hidden){sw++;}});
+document.addEventListener("contextmenu",function(e){if(active){e.preventDefault();}});
+document.addEventListener("copy",function(e){if(active){e.preventDefault();}});
+gate();
+</script>
+</body>
+</html>
